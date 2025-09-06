@@ -1,0 +1,26 @@
+{% include "head.html" %}
+<body>
+  <div id="content" class="archive">
+    <header>
+      <h1>{{ section.title }}</h1>
+    </header>
+    <p>{{ section.content | safe }}</p>
+
+    {% set_global current_year = "" %}
+    {% for page in section.pages %}
+      {% set page_year = page.date | date(format="%Y") %}
+      {% if page_year != current_year %}
+        {% set_global current_year = page_year %}
+        <div class="year-marker" data-year="{{ page_year }}"></div>
+      {% endif %}
+      
+      <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+      <p>
+        {% if page.extra.synopsis %}{{ page.extra.synopsis | safe }}{% else %}{{ page.summary | safe }}{% endif %}
+        <a href="{{ page.permalink }}" class="smcp">Read full post</a>
+      </p>
+    {% endfor %}
+  </div>
+  {% include "footer.html" %}
+</body>
+</html>

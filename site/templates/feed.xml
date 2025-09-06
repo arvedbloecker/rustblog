@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Arved Blöcker</title>
+  <id>https://arvedbloecker.de/</id>
+  <icon>/icon.svg</icon>
+  <link href="https://arvedbloecker.de/writing" rel="alternate"/>
+  <link href="https://arvedbloecker.de/feed.xml" rel="self"/>
+  <author>
+    <name>Arved Blöcker</name>
+  </author>
+  <updated>{{ updated }}T00:00:00Z</updated>
+
+  {% for post in sections.posts.pages %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <id>https://arvedbloecker.de{{ post.permalink }}</id>
+    <link href="https://arvedbloecker.de{{ post.permalink }}" rel="alternate"/>
+    <updated>{{ post.date | date(format="%Y-%m-%d") }}T00:00:00Z</updated>
+    <published>{{ post.date | date(format="%Y-%m-%d") }}T00:00:00Z</published>
+    <summary>{{ post.summary | safe }}</summary>
+  </entry>
+  {% endfor %}
+</feed>

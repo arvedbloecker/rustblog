@@ -1,0 +1,21 @@
+{% include "head.html" %}
+
+<body>
+  <article id="content" itemscope>
+    <header>
+      <h1>{{ page.title }}</h1>
+      {% if page.extra.part %}<p class="smcp">Part {{ page.extra.part }}</p>{% endif %}
+      {% if page.extra.subheader %}<h2>{{ page.extra.subheader }}</h2>{% endif %}
+      <p>
+        written by <a href="/" class="author">{{ config.extra.author | default(value="Arved Blöcker") }}</a><br>
+        published <time datetime="{{ page.date | date(format='%Y-%m-%d') }}" itemprop="datePublished">{{ page.date |
+          date(format='%B %d, %Y') }}</time>
+      </p>
+    </header>
+    {{ page.content | safe }}
+  </article>
+
+  {% include "footer.html" %}
+</body>
+
+</html>

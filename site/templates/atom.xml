@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ config.title }}</title>
+  <id>{{ config.base_url }}/</id>
+  <icon>/icon.svg</icon>
+  <link href="{{ config.base_url }}/writing" rel="alternate"/>
+  <link href="{{ config.base_url }}/atom.xml" rel="self"/>
+  <author>
+    <name>{{ config.extra.author | default(value="Arved Blöcker") }}</name>
+  </author>
+  <updated>{{ last_updated | date(format="%Y-%m-%dT%H:%M:%SZ") }}</updated>
+
+  {% for page in pages | slice(end=10) %}
+  <entry>
+    <title>{{ page.title }}</title>
+    <id>{{ page.permalink }}</id>
+    <link href="{{ page.permalink }}" rel="alternate"/>
+    <updated>{{ page.date | date(format="%Y-%m-%dT%H:%M:%SZ") }}</updated>
+    <published>{{ page.date | date(format="%Y-%m-%dT%H:%M:%SZ") }}</published>
+    <summary>{% if page.extra.synopsis %}{{ page.extra.synopsis | safe }}{% else %}{{ page.summary | safe }}{% endif %}</summary>
+  </entry>
+  {% endfor %}
+</feed>
+

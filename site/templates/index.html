@@ -1,0 +1,20 @@
+{% include "head.html" %}
+
+<body>
+  <div id="content">
+    <header>
+      <h1>{{ config.title }}</h1>
+    </header>
+    <p>
+      {{ section.content | safe }}
+    </p>
+    <nav class="smcp">
+      <a href="/writing">Writing</a>
+      <a href="https://codeberg.org/arvedbloecker">Codeberg</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+  {% include "footer.html" %}
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ config.default_language }}">
+
+<head>
+  <meta charset="utf-8">
+  <title>{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}{{ config.title }}{%
+    endif %}</title>
+  <link href="/icon.svg" rel="icon" type="image/svg">
+  <link href="/atom.xml" rel="alternate" type="application/atom+xml">
+  <link href="{{ config.base_url }}{{ current_path }}" rel="canonical">
+
+  {% if page.summary %}
+  <meta name="description" content="{{ page.summary }}">
+  {% elif page.extra.synopsis %}
+  <meta name="description" content="{{ page.extra.synopsis }}">
+  {% elif section.description %}
+  <meta name="description" content="{{ section.description }}">
+  {% endif %}
+
+  <meta name="author" content="{{ config.extra.author | default(value='Arved Blöcker') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/fonts.css">
+  <link rel="stylesheet" href="/page.css">
+  {% if page.extra.math %}
+  <link rel="stylesheet" href="/math.css">
+  {% endif %}
+</head>
+
+<!-- Dezente Top-Navigation -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <a href="/">About</a>
+    <a href="/writing">Writing</a>
+    <a href="https://codeberg.org/arvedbloecker">Codeberg</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>

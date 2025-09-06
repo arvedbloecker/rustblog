@@ -1,0 +1,694 @@
+/* ==========================================================================
+   Base Styles & Reset
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+code,
+em,
+strong {
+  line-height: 1;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  background-color: #fffef8;
+  border-top: 0.5em solid #d65d0e;
+  /* Orange accent */
+  padding-top: 0.2em;
+  color: #456;
+  font-family: "Calluna Sans", sans-serif;
+  font-feature-settings: 'liga', 'kern';
+  line-height: 1.4em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/* Site title in header */
+header>h1 {
+  color: #000;
+  font-size: 2.8em;
+  line-height: 2.8rem;
+  margin-bottom: 0.7rem;
+  padding-top: 2.8rem;
+}
+
+/* Post titles - smaller than site title */
+article h1,
+#content>h1 {
+  color: #000;
+  font-size: 1.8em;
+  line-height: 1.2em;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  font-family: Calluna, serif;
+}
+
+header>h2 {
+  font-size: 1.4em;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 1.4rem;
+  margin-bottom: 1.0rem;
+  padding-top: 0.4rem;
+}
+
+h2 {
+  font-family: Calluna, serif;
+  font-size: 1.4em;
+  line-height: 1em;
+  margin-bottom: 0.2rem;
+  padding-top: 1.2rem;
+}
+
+h2>a:before {
+  content: '¶';
+  width: 1.2rem;
+  margin-left: -1.2rem;
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  color: #b4aaaa;
+}
+
+/* Show a subtle pilcrow on hover */
+h2:hover>a:before {
+  opacity: 1;
+}
+
+/* Show the pilcrow in accent color when linked to directly */
+h2:target>a:before {
+  opacity: 1;
+  color: #d65d0e;
+  /* Orange */
+}
+
+/* Line breaks in headings for narrow viewports */
+h1>br {
+  display: none;
+}
+
+.dlig {
+  font-feature-settings: 'dlig';
+}
+
+p,
+nav {
+  margin-bottom: 1em;
+  padding-top: 0.4em;
+}
+
+/* ==========================================================================
+   Small Caps & Typography Features
+   ========================================================================== */
+
+abbr,
+.smcp {
+  font-feature-settings: 'smcp', 'c2sc';
+  letter-spacing: 0.1em;
+}
+
+abbr {
+  letter-spacing: 0.03em;
+  margin-right: -0.03em;
+}
+
+.run-in {
+  font-feature-settings: 'smcp';
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+a {
+  color: #d65d0e;
+  /* Orange for links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #689d6a;
+  /* Aqua on hover */
+}
+
+/* ==========================================================================
+   Layout & Structure
+   ========================================================================== */
+
+.top-nav {
+  padding: 0.3em 0;
+  font-size: 0.85em;
+}
+
+.nav-container {
+  max-width: 36em;
+  margin: 0 auto;
+  padding: 0 1.4em;
+  text-align: center;
+}
+
+#content,
+#teaser {
+  padding: 1.4em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 36em;
+  flex: 1;
+}
+
+#content {
+  padding-top: 0;
+}
+
+header {
+  font-family: Calluna, serif;
+  margin-left: 1em;
+  margin-right: 1em;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.top-nav a {
+  color: #d65d0e;
+  margin: 0 0.8em;
+  font-feature-settings: 'smcp', 'c2sc';
+  letter-spacing: 0.05em;
+  font-size: 0.9em;
+}
+
+.top-nav a:hover {
+  color: #689d6a;
+}
+
+nav {
+  text-align: center;
+}
+
+nav a {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+/* ==========================================================================
+   Archive Page
+   ========================================================================== */
+
+.archive .year-marker {
+  position: relative;
+  height: 0;
+}
+
+.archive .year-marker:before {
+  content: attr(data-year);
+  position: absolute;
+  right: 100%;
+  margin-right: 0.5em;
+  color: #d65d0e;
+  font-size: 3.2em;
+  font-weight: bold;
+  font-family: Calluna, serif;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+}
+
+.archive h2 {
+  display: none;
+}
+
+.archive h3 {
+  font-size: 1em;
+  margin-bottom: -0.4em;
+  padding-top: 0.4em;
+}
+
+.archive h3>a {
+  color: inherit;
+}
+
+.archive p>a {
+  font-family: Calluna, serif;
+  line-height: 0;
+}
+
+.archive p>a:after {
+  content: '\a0»';
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+ul,
+ol {
+  counter-reset: ol;
+  list-style: none;
+  margin-bottom: 1em;
+  padding-top: 0.4em;
+}
+
+li {
+  margin-left: 2em;
+  position: relative;
+}
+
+li:before {
+  position: absolute;
+  left: -2em;
+  width: 2em;
+  text-align: left;
+}
+
+ul>li:before {
+  content: '•';
+  color: #d65d0e;
+  /* Orange bullets */
+  text-align: center;
+  width: 1em;
+  left: -1.5em;
+}
+
+ol>li:before {
+  content: counter(ol, decimal) '.';
+  counter-increment: ol;
+  font-weight: bold;
+  color: #d65d0e;
+  /* Orange numbers */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+table {
+  border-spacing: 0;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+th {
+  padding-top: 0.4em;
+}
+
+th,
+td {
+  padding-right: 1.4em;
+  vertical-align: top;
+}
+
+/* ==========================================================================
+   Code & Syntax Highlighting
+   ========================================================================== */
+
+code {
+  color: #d65d0e;
+  /* Orange for code */
+  font-family: Inconsolata, Consolas, monospace;
+}
+
+div.sourceCode {
+  margin-left: -0.25em;
+  overflow: hidden;
+}
+
+article>pre {
+  margin-left: -0.25em;
+}
+
+pre {
+  background-color: #f8f7f4;
+  border-left: 0.25rem solid #d65d0e;
+  /* Orange border */
+  margin-bottom: 0.6rem;
+  margin-top: 0.2rem;
+  overflow-x: auto;
+  padding: 1rem;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+  font-size: 0.9em;
+  line-height: 1.4rem;
+}
+
+code.sourceCode {
+  color: #456;
+}
+
+/* Syntax highlighting colors */
+.kw,
+.cf {
+  color: #689d6a;
+  /* Keyword, control flow in Aqua */
+}
+
+.dt,
+.at {
+  color: #d65d0e;
+  /* Data type, function, attribute in Orange */
+}
+
+.fu {
+  color: #689d6a;
+  /* Function in Aqua */
+}
+
+.dv,
+.bn,
+.fl,
+.er {
+  color: #d65d0e;
+  /* Decimal, base N, float, decimal part in Orange */
+}
+
+.ch,
+.st {
+  color: #689d6a;
+  /* Character, string in Aqua */
+}
+
+.co {
+  color: #789;
+  /* Comment */
+}
+
+/* ==========================================================================
+   Images & Media
+   ========================================================================== */
+
+img {
+  width: 100%;
+  height: auto;
+  margin-top: -0.2em;
+  margin-bottom: -0.6em;
+}
+
+object {
+  width: 100%;
+  margin-top: -0.2em;
+  margin-bottom: -0.3em;
+}
+
+/* ==========================================================================
+   Blockquotes
+   ========================================================================== */
+
+blockquote {
+  font-family: Calluna, serif;
+  font-style: italic;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-left: 3px solid #689d6a;
+  /* Aqua border for quotes */
+}
+
+/* ==========================================================================
+   Teaser Section
+   ========================================================================== */
+
+#teaser-section {
+  background-color: #d65d0e;
+  /* Orange background */
+  color: #fff;
+}
+
+#teaser p:first-child {
+  margin-bottom: 0.3em;
+}
+
+#teaser a {
+  color: #fff;
+  font-family: Calluna, serif;
+  line-height: 0;
+}
+
+#teaser a:after {
+  color: #fff;
+  content: '\a0»';
+}
+
+#teaser>h2 {
+  margin-bottom: 0.2rem;
+  padding-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  background-color: #234;
+  color: #b4aaaa;
+  margin-top: auto;
+}
+
+#footer {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 36em;
+  padding: 1.4em;
+}
+
+footer h2 {
+  font-family: Calluna, serif;
+  font-size: 1.4em;
+  color: #e8f4f0;
+  margin-bottom: 1em;
+}
+
+#about {
+  line-height: 1.5em;
+  margin-bottom: 2em;
+}
+
+/* Navigation links in footer, right-aligned */
+.footer-content {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2em;
+}
+
+.footer-nav {
+  order: -1;
+  flex-shrink: 0;
+  text-align: right;
+  width: 8em;
+  margin-left: -8em;
+  padding-top: 4em;
+}
+
+.footer-main {
+  flex: 1;
+  padding-left: 1.4em;
+}
+
+.footer-nav a {
+  display: block;
+  color: #d65d0e;
+  /* Orange links */
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-feature-settings: 'smcp', 'c2sc';
+  margin-bottom: 0.2em;
+}
+
+.footer-nav a:hover {
+  color: #689d6a;
+  /* Aqua on hover */
+}
+
+#notices {
+  clear: both;
+  text-align: center;
+  padding-top: 1.8em;
+  font-size: 0.9em;
+  color: #789;
+}
+
+#notices a {
+  color: #d65d0e;
+  /* Orange */
+}
+
+#notices a:hover {
+  color: #689d6a;
+  /* Aqua on hover */
+}
+
+footer span {
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+
+/* ==========================================================================
+   Responsive Design - Mobile & Desktop Scaling
+   ========================================================================== */
+
+/* Small screens (mobile phones) */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    border-top-width: 0.3em;
+  }
+
+  #content,
+  #teaser {
+    padding: 1em;
+    max-width: 100%;
+  }
+
+  .nav-container {
+    padding: 0 1em;
+  }
+
+  .top-nav a {
+    margin: 0 0.4em;
+    font-size: 0.8em;
+  }
+
+  header {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+
+  header>h1 {
+    font-size: 2.2em;
+    padding-top: 2em;
+  }
+
+  article h1,
+  #content>h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  /* Archive year marker - position above and centered on mobile */
+  .archive .year-marker:before {
+    position: static;
+    display: block;
+    text-align: center;
+    margin-bottom: 0.8em;
+    margin-right: 0;
+    font-size: 2em;
+  }
+
+  /* Footer navigation - show below about section on mobile */
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-nav {
+    order: 1;
+    /* Show after main content */
+    width: auto;
+    margin-left: 0;
+    padding-top: 2em;
+    text-align: left;
+  }
+
+  .footer-nav a {
+    display: inline;
+    margin-right: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .footer-main {
+    padding-left: 0;
+  }
+
+  pre {
+    padding: 0.8rem;
+    font-size: 0.8em;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+
+  #content,
+  #teaser {
+    padding: 1.2em;
+  }
+
+  header>h1 {
+    font-size: 2.5em;
+  }
+
+  .archive .year-marker:before {
+    font-size: 2.8em;
+  }
+}
+
+/* Large screens (desktops and up) */
+@media (min-width: 1025px) {
+  html {
+    font-size: 16px;
+    /* Zurück zur ursprünglichen Größe */
+  }
+
+  .nav-container,
+  #content,
+  #teaser,
+  #footer {
+    max-width: 36em;
+    /* Ursprüngliche Breite */
+  }
+
+  body {
+    border-top-width: 0.5em;
+    /* Ursprüngliche Dicke */
+  }
+
+  header>h1 {
+    font-size: 2.8em;
+    /* Ursprüngliche Größe */
+  }
+
+  .archive .year-marker:before {
+    font-size: 3.2em;
+    margin-right: 0.5em;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1400px) {
+  html {
+    font-size: 17px;
+    /* Nur leicht vergrößert */
+  }
+
+  .nav-container,
+  #content,
+  #teaser,
+  #footer {
+    max-width: 40em;
+  }
+}

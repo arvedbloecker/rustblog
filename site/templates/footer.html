@@ -1,0 +1,30 @@
+<footer>
+  <div id="footer">
+    <div class="footer-content">
+      <div class="footer-main">
+        <h2>About me</h2>
+        <p id="about">
+          I focus on understanding the core principles of programming, especially through low-level work that provides
+          direct control over system behavior. I prefer languages with strict and explicit typing like Rust and C
+          because they encourage clear and disciplined code. Rather than following trends, I rely on sound reasoning and
+          practical solutions. I prioritize immutable data structures as a foundation for reliability, aiming to build
+          systems that inherently reduce errors and prioritize readability.
+        </p>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="/">About</a>
+        <a href="/writing">Writing</a>
+        <a href="https://codeberg.org/arvedbloecker">Codeberg</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+
+    <p id="notices" class="smcp">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Copyright</a>
+      {{ now() | date(format="%Y") }} {{ config.extra.author | default(value="Arved Blöcker") }}
+      <span id="breakdot">&middot;</span>
+      <a href="https://codeberg.org/arvedbloecker/rustblog">Source</a>
+    </p>
+  </div>
+</footer>
