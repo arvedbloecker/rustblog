@@ -4,15 +4,13 @@ title = "Arved Blöcker"
 description = "Personal blog of Arved Blöcker"
 default_language = "en"
 
-# Build configuration
 compile_sass = true
 build_search_index = true
 generate_feeds = true
 
 [markdown]
 highlight_code = true
-highlight_theme = "base16-ocean-dark"
+highlight_theme = "ayu-light"
 
 [extra]
-# Custom variables that can be used in templates
 author = "Arved Blöcker"
