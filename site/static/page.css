@@ -465,6 +465,7 @@ footer {
   margin-right: auto;
   max-width: 36em;
   padding: 1.4em;
+  flex: 1;
 }
 
 footer h2 {
@@ -497,7 +498,6 @@ footer h2 {
 
 .footer-main {
   flex: 1;
-  padding-left: 1.4em;
 }
 
 .footer-nav a {
@@ -544,7 +544,7 @@ footer span {
    ========================================================================== */
 
 /* Small screens (mobile phones) */
-@media (max-width: 640px) {
+@media (max-width: 680px) {
   html {
     font-size: 14px;
   }
@@ -553,6 +553,7 @@ footer span {
     border-top-width: 0.3em;
   }
 
+  #footer,
   #content,
   #teaser {
     padding: 1em;
@@ -592,19 +593,25 @@ footer span {
     position: static;
     display: block;
     text-align: center;
+    margin-top: 0.8em;
     margin-bottom: 0.8em;
     margin-right: 0;
     font-size: 2em;
   }
 
+  .year-marker {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
   /* Footer navigation - show below about section on mobile */
   .footer-content {
     flex-direction: column;
+    max-width: 100%;
   }
 
   .footer-nav {
     order: 1;
-    /* Show after main content */
     width: auto;
     margin-left: 0;
     padding-top: 2em;
@@ -619,6 +626,7 @@ footer span {
 
   .footer-main {
     padding-left: 0;
+    max-width: 100%;
   }
 
   pre {
@@ -628,7 +636,7 @@ footer span {
 }
 
 /* Medium screens (tablets) */
-@media (min-width: 641px) and (max-width: 1024px) {
+@media (min-width: 681px) and (max-width: 1024px) {
   html {
     font-size: 15px;
   }
@@ -651,25 +659,21 @@ footer span {
 @media (min-width: 1025px) {
   html {
     font-size: 16px;
-    /* Zurück zur ursprünglichen Größe */
   }
 
   .nav-container,
   #content,
   #teaser,
   #footer {
-    max-width: 36em;
-    /* Ursprüngliche Breite */
+    max-width: 42em;
   }
 
   body {
     border-top-width: 0.5em;
-    /* Ursprüngliche Dicke */
   }
 
   header>h1 {
     font-size: 2.8em;
-    /* Ursprüngliche Größe */
   }
 
   .archive .year-marker:before {
@@ -678,17 +682,15 @@ footer span {
   }
 }
 
-/* Extra large screens */
 @media (min-width: 1400px) {
   html {
-    font-size: 17px;
-    /* Nur leicht vergrößert */
+    font-size: 16px;
   }
 
   .nav-container,
   #content,
   #teaser,
   #footer {
-    max-width: 40em;
+    max-width: 48em;
   }
 }
