@@ -489,11 +489,12 @@ footer h2 {
 
 .footer-nav {
   order: -1;
+  float: left;
   flex-shrink: 0;
   text-align: right;
   width: 8em;
   margin-left: -8em;
-  padding-top: 4em;
+  padding-top: 4.4em;
 }
 
 .footer-main {
