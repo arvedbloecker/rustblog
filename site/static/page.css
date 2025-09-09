@@ -163,6 +163,7 @@ a:hover {
 }
 
 #content,
+#footer,
 #teaser {
   padding: 1.4em;
   margin-left: auto;
@@ -460,14 +461,6 @@ footer {
   margin-top: auto;
 }
 
-#footer {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 36em;
-  padding: 1.4em;
-  flex: 1;
-}
-
 footer h2 {
   font-family: Calluna, serif;
   font-size: 1.4em;
@@ -594,10 +587,10 @@ footer span {
     position: static;
     display: block;
     text-align: center;
-    margin-top: 0.8em;
-    margin-bottom: 0.8em;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
     margin-right: 0;
-    font-size: 2em;
+    font-size: 2.8em;
   }
 
   .year-marker {
@@ -643,6 +636,7 @@ footer span {
   }
 
   #content,
+  #footer,
   #teaser {
     padding: 1.2em;
   }
