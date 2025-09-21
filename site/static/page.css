@@ -561,6 +561,7 @@ footer span {
   .footer-content {
     flex-direction: column;
     max-width: 100%;
+    display: grid;
   }
 
   .footer-nav {
@@ -568,11 +569,12 @@ footer span {
     width: auto;
     margin-left: 0;
     padding-top: 2em;
-    text-align: left;
+    text-align: center;
   }
 
   .footer-nav a {
-    display: inline;
+    display: grid;
+    /* display: inline; */
     margin-right: 1.5em;
     margin-bottom: 0.5em;
   }
